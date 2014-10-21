@@ -2,7 +2,7 @@ package com.alexis.quiz;
 
 import com.alexi.quiz.R;
 
-import dao.NoteDAO;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -149,7 +149,7 @@ public class Jeu extends Activity implements OnClickListener  {
 				else note+=0;
 			}
 			Toast.makeText(this, "Votre note est: "+note,Toast.LENGTH_LONG).show();	
-			NoteDAO.getInstance().setNote(note);
+			//NoteDAO.getInstance().setNote(note);
 			
 			Intent intent = new Intent();
 			intent.putExtra("nombreJoue", nbj);

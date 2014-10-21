@@ -30,8 +30,8 @@ TextView nombreConnexion;
 		moyenneEvaluations =(TextView) findViewById(R.id.moyenneEvaluation);
 		
 		nombreConnexion.setText("le nombre de parties jouées est :" + getIntent().getIntExtra("nombreJoue".toString(), 0));
-		moyenneNotes.setText("La moyenne notes : " + NoteDAO.getInstance().moyenneNotes());
-		moyenneEvaluations.setText("La moyenne évaluations : " + EvaluationDAO.getInstance().moyenneEvaluation());
+		//moyenneNotes.setText("La moyenne notes : " + NoteDAO.getInstance().moyenneNotes());
+		//moyenneEvaluations.setText("La moyenne évaluations : " + EvaluationDAO.getInstance().moyenneEvaluation());
 		
 			
 	}

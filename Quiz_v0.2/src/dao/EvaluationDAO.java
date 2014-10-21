@@ -22,22 +22,5 @@ public class EvaluationDAO {
 	}
 
 	
-	public float moyenneEvaluation(){
-		float somme=0;
-		if(singleton.eva.size()==0){
-			return 2/5;
-		}else{
-		for(int i=0; i<singleton.eva.size();i++){
-			somme+= singleton.eva.get(i);
-		}
-		return somme/singleton.eva.size();
-		}
-		
-	}
-	
-	
-	public void setEvalution(float a){
-		eva.add(a);
-	}
 
 }

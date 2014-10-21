@@ -53,7 +53,7 @@ public class Evaluer extends Activity implements OnRatingBarChangeListener, OnCl
 		// TODO Auto-generated method stub
 	
 		if(v==evalu){
-			EvaluationDAO.getInstance().setEvalution(r.getRating());
+		//	EvaluationDAO.getInstance().setEvalution(r.getRating());
 
 			Intent theIntent = new Intent(this, MainActivity.class);
 			Toast.makeText(this, "Valeur enregistrée", Toast.LENGTH_LONG).show();
