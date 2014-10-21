@@ -85,7 +85,7 @@ public class Bdd extends SQLiteOpenHelper{
 		db.execSQL("INSERT INTO reponses (\"Samsung\", 5, 8");
 		db.execSQL("INSERT INTO reponses (\"Apple\",0, 8 ");
 		
-		//diagne
+		//diagne NAGALO
 	}
 
 	@Override
