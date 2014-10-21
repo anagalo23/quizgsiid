@@ -17,7 +17,7 @@ public class Bdd extends SQLiteOpenHelper{
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		
-		//Creation de la base de données
+		//Creation des tables
 		db.execSQL("CREATE TABLE thematique (id_th INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ "theme TEXT NOT NULL)");
 		
@@ -90,8 +90,11 @@ public class Bdd extends SQLiteOpenHelper{
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
-
+		// Drop older books table if existed
+        db.execSQL("DROP TABLE IF EXISTS books");
+ 
+        // create fresh books table
+        this.onCreate(db);
 	}
 
 }
