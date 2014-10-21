@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.alexi.quiz.MainActivity" >
+
+    <item
+        android:id="@+id/jouerquizz"
+        android:icon="@drawable/quizz"
+        android:title="Jouer"/>
+    <item
+        android:id="@+id/statistiques"
+         android:icon="@drawable/stat"
+        android:title="Statistiques"/>
+    <item
+        android:id="@+id/evaluerquizz"
+         android:icon="@drawable/evaluer"
+        android:title="Evaluation quizz"/>
+    
+    <item
+        android:id="@+id/aboutquizz"
+         android:icon="@drawable/about"
+        android:title="A propos"/>
+     <item
+        android:id="@+id/exitquizz"
+         android:icon="@drawable/exit"
+        android:title="Quitter"/>
+    
+
+</menu>
