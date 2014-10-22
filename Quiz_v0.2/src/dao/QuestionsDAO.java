@@ -1,7 +1,9 @@
 package dao;
 
-import android.content.ContentValues;
+import java.util.ArrayList;
+
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import bdd.*;
 import dto.Questions;
@@ -9,25 +11,18 @@ public class QuestionsDAO {
 
 	private SQLiteDatabase sqlite;
 	private Bdd bdd;
-	
+
 	private static final int VERSION_BDD=1;
 	private static final String NOM_BDD= "quiz.db";
-	
-	private static final String TABLE_QUESTIONS="questions";
-	private static final String COL_ID="id_quest";
-	private static final int NUM_COL_ID=1;
-	private static final String QUESTIONS="question";
-
-	
+	private static final String TABLE_NAME="questions";
 
 
-	
+
 	public QuestionsDAO(Context context) {
-		// TODO Auto-generated constructor stub
 		bdd= new Bdd(context,NOM_BDD,null, VERSION_BDD);
 	}
-	
-	
+
+
 	public void open(){
 		sqlite =bdd.getWritableDatabase();
 	}
@@ -36,11 +31,37 @@ public class QuestionsDAO {
 	protected void close() {
 		sqlite.close();
 	}
-	
+
 	public SQLiteDatabase getBDD(){
 		return sqlite;
 	}
 
 	
-	
+	//Selection des questions selon leur theme 
+
+	public ArrayList<Questions> getQuestionParTheme(int id_th){
+
+
+		ArrayList<Questions> questionList=new ArrayList<Questions>();
+
+		String selectQuery = "SELECT  * FROM " + TABLE_NAME + "WHERE id_th=" + id_th;
+
+		Cursor cursor = sqlite.rawQuery(selectQuery, null);
+
+		if (cursor.moveToFirst()) {
+			do {
+				Questions question = new Questions(cursor.getInt(0), cursor.getString(1),cursor.getInt(2));
+
+				// Adding contact to list
+				questionList.add(question);
+			} while (cursor.moveToNext());
+		}
+
+		cursor.close();
+		return questionList;
+
+
+
+	}
+
 }

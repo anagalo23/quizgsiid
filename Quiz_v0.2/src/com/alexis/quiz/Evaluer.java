@@ -3,6 +3,7 @@ package com.alexis.quiz;
 import com.alexi.quiz.R;
 
 import dao.EvaluationDAO;
+import dto.Evaluation;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ public class Evaluer extends Activity implements OnRatingBarChangeListener, OnCl
 	TextView tv=null;
 	Button evalu=null;
 	RatingBar r;
+	EvaluationDAO evalDAO =new EvaluationDAO(this);
+
 
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -53,7 +56,7 @@ public class Evaluer extends Activity implements OnRatingBarChangeListener, OnCl
 		// TODO Auto-generated method stub
 	
 		if(v==evalu){
-		//	EvaluationDAO.getInstance().setEvalution(r.getRating());
+			evalDAO.ajouterNoteEvaluation(new Evaluation(0, r.getRating()));
 
 			Intent theIntent = new Intent(this, MainActivity.class);
 			Toast.makeText(this, "Valeur enregistrée", Toast.LENGTH_LONG).show();

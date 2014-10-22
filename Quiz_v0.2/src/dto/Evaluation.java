@@ -27,17 +27,19 @@ public class Evaluation {
 	public void setId_eval(int id_eval) {
 		this.id_eval = id_eval;
 	}
+	
+	
 	/**
-	 * @return the note
+	 * @return the noteAppli
 	 */
-	public float getNote() {
+	public float getNoteAppli() {
 		return noteAppli;
 	}
 	/**
-	 * @param note the note to set
+	 * @param noteAppli the noteAppli to set
 	 */
-	public void setNote(float note) {
-		this.noteAppli = note;
+	public void setNoteAppli(float noteAppli) {
+		this.noteAppli = noteAppli;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

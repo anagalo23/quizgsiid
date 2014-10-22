@@ -2,6 +2,7 @@ package com.alexis.quiz;
 
 import com.alexi.quiz.R;
 
+import dao.ThematiqueDAO;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ public class Choix extends Activity implements OnClickListener {
 
 	Button jouerNow =null;
 	RadioGroup choix;
+	ThematiqueDAO themeDAO =new ThematiqueDAO(this);
+	
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
@@ -64,12 +67,12 @@ public class Choix extends Activity implements OnClickListener {
 			Intent theIntent = new Intent(this, Jeu.class);
 			
 			if(choix.getCheckedRadioButtonId()==R.id.jee){
-				theIntent.putExtra("check", "jee".toString());
+				
+				theIntent.putExtra("check", themeDAO.getThematiqueParId(1).getId_th());
 			}
 			else if(choix.getCheckedRadioButtonId()==R.id.android){
-				theIntent.putExtra("check", "android".toString());
+				theIntent.putExtra("check", themeDAO.getThematiqueParId(2).getId_th());
 			}
-
 			startActivity(theIntent);
 		}else {
 			Toast.makeText(this, "Vous devez faire un choix", Toast.LENGTH_LONG).show();

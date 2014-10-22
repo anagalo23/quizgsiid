@@ -34,7 +34,7 @@ public class Bdd extends SQLiteOpenHelper{
 		db.execSQL("CREATE TABLE nombrePartieJouee (id_nbpj INTEGER PRIMARY KEY AUTOINCREMENT"
 				+"note INTEGER");
 		
-		db.execSQL("CREATE TABLE evaluation(id_eval INTEGER PRIMARY KEY AUTOINCREMENT "
+		db.execSQL("CREATE TABLE evaluation (id_eval INTEGER PRIMARY KEY AUTOINCREMENT "
 				+"noteAppli FLOAT");
 		
 		//les initialisations

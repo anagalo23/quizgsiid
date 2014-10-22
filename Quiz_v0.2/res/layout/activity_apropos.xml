@@ -14,11 +14,6 @@
         android:text="NAGALO Alexis"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="217dp"
-        android:layout_height="136dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/alexis" />
+   
 
 </LinearLayout>
