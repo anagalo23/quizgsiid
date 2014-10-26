@@ -9,7 +9,6 @@ import com.alexi.quiz.R;
 import dao.QuestionsDAO;
 import dao.ReponseDAO;
 import dao.ThematiqueDAO;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
-@SuppressLint("DefaultLocale")
 public class Jeu extends Activity implements OnClickListener  {
 
 	TextView r1=null,r2=null;
@@ -92,22 +90,22 @@ public class Jeu extends Activity implements OnClickListener  {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
-/// cette partie n'est pas encore faite. Je vais m arreter là pour ce soir.
+		/// cette partie n'est pas encore faite. Je vais m arreter là pour ce soir.
 		if(v==validerqcm &(choix1.getCheckedRadioButtonId()==R.id.radio0 | choix1.getCheckedRadioButtonId()==R.id.radio1)){
-			
+
 			for(int i =1; i<question.getQuestionParTheme(id_th).size();i++){
-				
+
 			}
-		
+
 			if(getIntent().getStringExtra("check").startsWith("j")){
 			}
 			if(getIntent().getStringExtra("check").startsWith("a"))
 				if(choix1.getCheckedRadioButtonId()==R.id.radio0);
 
-			
-/*			Toast.makeText(this, "Votre note est: "+note,Toast.LENGTH_LONG).show();	
-*/
-			
+
+			//			Toast.makeText(this, "Votre note est: "+note,Toast.LENGTH_LONG).show();	
+
+
 		}else {
 			Toast.makeText(this, "cochez toutes les parties", Toast.LENGTH_LONG).show();
 		}

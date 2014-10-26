@@ -19,7 +19,7 @@ public class Choix extends Activity implements OnClickListener {
 	Button jouerNow =null;
 	RadioGroup choix;
 	ThematiqueDAO themeDAO =new ThematiqueDAO(this);
-	
+
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
@@ -65,9 +65,9 @@ public class Choix extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		if(v==jouerNow & (choix.getCheckedRadioButtonId()==R.id.jee | choix.getCheckedRadioButtonId()==R.id.android)){
 			Intent theIntent = new Intent(this, Jeu.class);
-			
+
 			if(choix.getCheckedRadioButtonId()==R.id.jee){
-				
+
 				theIntent.putExtra("check", themeDAO.getThematiqueParId(1).getId_th());
 			}
 			else if(choix.getCheckedRadioButtonId()==R.id.android){

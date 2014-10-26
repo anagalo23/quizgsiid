@@ -10,9 +10,8 @@ public class Questions {
 	 * @param question
 	 * @param id_rep
 	 */
-	public Questions(int id_quest, String question, int id_rep) {
+	public Questions(String question, int id_rep) {
 
-		this.id_quest = id_quest;
 		this.question = question;
 		this.id_the = id_rep;
 	}

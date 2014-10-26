@@ -16,10 +16,7 @@ public class Reponse {
 		 * @param valeur_rep
 		 * @param id_question
 		 */
-		public Reponse(int id_rep, String reponse, int valeur_rep,
-				int id_question) {
-			super();
-			this.id_rep = id_rep;
+		public Reponse(String reponse, int valeur_rep, int id_question) {
 			this.reponse = reponse;
 			this.valeur_rep = valeur_rep;
 			this.id_question = id_question;

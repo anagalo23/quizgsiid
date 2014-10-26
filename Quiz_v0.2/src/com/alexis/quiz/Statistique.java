@@ -41,11 +41,11 @@ public class Statistique extends Activity implements OnClickListener {
 
 
 
-				// Affichage nombre de parties jouées depuis le debut de l'aplications
-				if(nbpj.getEvaluation().size()==0)
-					nombreConnexion.setText("Le nombre de parties jouées est : " + 0);
-				else
-					nombreConnexion.setText("Le nombre de parties jouées est : " + nbpj.getEvaluation().size());
+		// Affichage nombre de parties jouées depuis le debut de l'aplications
+		if(nbpj.getEvaluation().size()==0)
+			nombreConnexion.setText("Le nombre de parties jouées est : " + 0);
+		else
+			nombreConnexion.setText("Le nombre de parties jouées est : " + nbpj.getEvaluation().size());
 
 
 		//affichage moyenne des notes 
@@ -80,7 +80,7 @@ public class Statistique extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		if(v==statToAccueil){
 
 			Intent theIntent = new Intent(this, MainActivity.class);
@@ -88,5 +88,5 @@ public class Statistique extends Activity implements OnClickListener {
 		}
 	}
 
-	
+
 }

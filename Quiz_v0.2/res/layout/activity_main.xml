@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,53 +10,62 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.alexis_quiz_gsi.MainActivity" >
 
-    <Button
-        android:id="@+id/quitter"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/statistiques"
-        android:layout_marginBottom="20dp"
-        android:text="Quitter" />
+        android:background="@layout/linearlayout_bg"
+        android:orientation="vertical"
+        android:padding="10dp" >
 
-    <Button
-        android:id="@+id/aPropos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/quitter"
-        android:layout_alignBottom="@+id/quitter"
-        android:layout_alignParentLeft="true"
-        android:text="A propos" />
+        <Button
+            android:id="@+id/jouer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#00FFFF"
+            android:padding="10dp"
+            android:radius="12px"
+            android:text="Jouer" />
 
-    <Button
-        android:id="@+id/statistiques"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/evaluer"
-        android:layout_alignParentRight="true"
-        android:text="Statistiques" />
+        <Button
+            android:id="@+id/evaluer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#3CB371"
+            android:padding="10dp"
+            android:radius="12px"
+            android:text="Evaluer" />
 
-    <Button
-        android:id="@+id/evaluer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/aPropos"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:text="Evaluer" />
+        <Button
+            android:id="@+id/statistiques"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#008000"
+            android:padding="10dp"
+            android:radius="12px"
+            android:text="Statistiques" />
 
-    <Button
-        android:id="@+id/jouer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/evaluer"
-        android:layout_alignLeft="@+id/imageView1"
-        android:text="Jouer" />
+        <Button
+            android:id="@+id/aPropos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#FF4500"
+            android:padding="10dp"
+            android:radius="12px"
+            android:text="A propos" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:src="@drawable/font" />
+        <Button
+            android:id="@+id/quitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#FF0000"
+            android:padding="10dp"
+            android:radius="12px"
+            android:text="Quitter" />
+    </LinearLayout>
 
 </RelativeLayout>

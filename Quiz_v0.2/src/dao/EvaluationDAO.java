@@ -16,7 +16,7 @@ public class EvaluationDAO {
 	private SQLiteDatabase sqlite;
 	private Bdd bdd;
 
-	private static final int VERSION_BDD=1;
+	private static final int VERSION_BDD=2;
 	private static final String NOM_BDD= "quiz.db";
 	private static final String TABLE_NAME="evaluation";
 
@@ -45,7 +45,6 @@ public class EvaluationDAO {
 		values.put("noteAppli", eval.getNoteAppli());
 
 		return sqlite.insert(TABLE_NAME, null, values);
-
 	}
 
 
@@ -58,7 +57,7 @@ public class EvaluationDAO {
 
 		if (cursor.moveToFirst()) {
 			do {
-				Evaluation evaluation = new Evaluation(cursor.getInt(0), cursor.getFloat(1));
+				Evaluation evaluation = new Evaluation(cursor.getFloat(2));
 
 				// Adding contact to list
 				noteList.add(evaluation);

@@ -12,7 +12,7 @@ public class QuestionsDAO {
 	private SQLiteDatabase sqlite;
 	private Bdd bdd;
 
-	private static final int VERSION_BDD=1;
+	private static final int VERSION_BDD=2;
 	private static final String NOM_BDD= "quiz.db";
 	private static final String TABLE_NAME="questions";
 
@@ -44,13 +44,13 @@ public class QuestionsDAO {
 
 		ArrayList<Questions> questionList=new ArrayList<Questions>();
 
-		String selectQuery = "SELECT  * FROM " + TABLE_NAME + "WHERE id_th=" + id_th;
+		String selectQuery = "SELECT  * FROM " + TABLE_NAME + " WHERE id_th= " + id_th;
 
 		Cursor cursor = sqlite.rawQuery(selectQuery, null);
 
 		if (cursor.moveToFirst()) {
 			do {
-				Questions question = new Questions(cursor.getInt(0), cursor.getString(1),cursor.getInt(2));
+				Questions question = new Questions(cursor.getString(2),cursor.getInt(3));
 
 				// Adding contact to list
 				questionList.add(question);

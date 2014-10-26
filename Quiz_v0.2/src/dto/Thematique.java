@@ -11,9 +11,7 @@ public class Thematique {
 	 * @param id_th
 	 * @param theme
 	 */
-	public Thematique(int id_th, String theme) {
-		super();
-		this.id_th = id_th;
+	public Thematique(String theme) {
 		this.theme = theme;
 	}
 	/**

@@ -10,9 +10,8 @@ public class Evaluation {
 	 * @param id_eval
 	 * @param note
 	 */
-	public Evaluation(int id_eval, float note) {
+	public Evaluation(float note) {
 		super();
-		this.id_eval = id_eval;
 		this.noteAppli = note;
 	}
 	/**

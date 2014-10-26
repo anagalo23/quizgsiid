@@ -9,9 +9,8 @@ public class Nbpj {
 	 * @param id_nbpj
 	 * @param note
 	 */
-	public Nbpj(int id_nbpj, int note) {
+	public Nbpj(int note) {
 		super();
-		this.id_nbpj = id_nbpj;
 		this.note = note;
 	}
 	/**
