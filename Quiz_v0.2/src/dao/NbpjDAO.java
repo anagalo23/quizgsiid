@@ -15,7 +15,7 @@ public class NbpjDAO {
 	private SQLiteDatabase sqlite;
 	private Bdd bdd;
 
-	private static final int VERSION_BDD=2;
+	private static final int VERSION_BDD=3;
 	private static final String NOM_BDD= "quiz.db";
 	private static final String TABLE_NAME="nombrePartieJouee";
 
@@ -29,7 +29,7 @@ public class NbpjDAO {
 	}
 
 
-	protected void close() {
+	public void close() {
 		sqlite.close();
 	}
 
@@ -55,7 +55,7 @@ public class NbpjDAO {
 
 		if (cursor.moveToFirst()) {
 			do {
-				Nbpj nbpj = new Nbpj(cursor.getInt(2));
+				Nbpj nbpj = new Nbpj(cursor.getInt(1));
 
 				// Adding contact to list
 				nbpjList.add(nbpj);

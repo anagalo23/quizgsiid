@@ -42,13 +42,15 @@ public class Statistique extends Activity implements OnClickListener {
 
 
 		// Affichage nombre de parties jouées depuis le debut de l'aplications
+		nbpj.open();
 		if(nbpj.getEvaluation().size()==0)
 			nombreConnexion.setText("Le nombre de parties jouées est : " + 0);
 		else
 			nombreConnexion.setText("Le nombre de parties jouées est : " + nbpj.getEvaluation().size());
 
+		
+		//affichage moyenne des notes
 
-		//affichage moyenne des notes 
 
 		if(nbpj.getEvaluation().size()==0)
 			moyenneNotes.setText("La moyenne des notes est : " + 0);
@@ -60,8 +62,10 @@ public class Statistique extends Activity implements OnClickListener {
 			}
 			moyenneNotes.setText("La moyenne des notes est : " + sommeNotes);
 		}
+		nbpj.close();
 
 		//Affichage moyenne des evaluations
+		eval.open();
 		if(eval.getEvaluation().size()==0)
 			moyenneEvaluations.setText("La moyenne des évaluations est : " + 0);
 		else{
@@ -73,6 +77,7 @@ public class Statistique extends Activity implements OnClickListener {
 			moyenneEvaluations.setText("La moyenne des évaluations est : " + sommeEva);
 
 		}
+		eval.close();
 
 
 	}

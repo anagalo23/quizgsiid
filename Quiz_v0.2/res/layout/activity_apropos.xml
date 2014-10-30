@@ -30,7 +30,14 @@
             android:layout_marginTop="20dp"
             android:text="NAGALO Alexis"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-        
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fille" />
         
     </LinearLayout>
 </RelativeLayout>

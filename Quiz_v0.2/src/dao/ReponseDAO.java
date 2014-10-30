@@ -14,7 +14,7 @@ public class ReponseDAO {
 	private SQLiteDatabase sqlite;
 	private Bdd bdd;
 
-	private static final int VERSION_BDD=2;
+	private static final int VERSION_BDD=3;
 	private static final String NOM_BDD= "quiz.db";
 	private static final String TABLE_NAME="reponses";
 	
@@ -28,7 +28,7 @@ public class ReponseDAO {
 	}
 
 
-	protected void close() {
+	public void close() {
 		sqlite.close();
 	}
 
@@ -41,14 +41,14 @@ public class ReponseDAO {
 		
 		ArrayList<Reponse> reponseList =new ArrayList<Reponse>();
 		
-		String selectQuery = "SELECT  * FROM " + TABLE_NAME + " WHERE id_th= " + id_quest;
+		String selectQuery = "SELECT  * FROM " + TABLE_NAME + " WHERE id_question= " + id_quest;
 
 		Cursor cursor = sqlite.rawQuery(selectQuery, null);
 		
 
 		if (cursor.moveToFirst()) {
 			do {
-				Reponse reponse = new Reponse(cursor.getString(2),cursor.getInt(3),cursor.getInt(4));
+				Reponse reponse = new Reponse(cursor.getString(1),cursor.getInt(2),cursor.getInt(3));
 
 				// Adding contact to list
 				reponseList.add(reponse);

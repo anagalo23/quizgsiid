@@ -12,7 +12,7 @@ public class ThematiqueDAO {
 	private SQLiteDatabase sqlite;
 	private Bdd bdd;
 
-	private static final int VERSION_BDD=2;
+	private static final int VERSION_BDD=3;
 	private static final String NOM_BDD= "quiz.db";
 	private static final String TABLE_NAME="thematique";
 
@@ -27,7 +27,7 @@ public class ThematiqueDAO {
 	}
 
 
-	protected void close() {
+	public void close() {
 		sqlite.close();
 	}
 
@@ -38,14 +38,11 @@ public class ThematiqueDAO {
 
 	public Thematique getThematiqueParId(int id_th){
 
-		String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE id_th= " + id_th;
+		String selectQuery = "SELECT * FROM  thematique WHERE id_th = " + id_th +"";
 
 		Cursor cursor = sqlite.rawQuery(selectQuery, null);
 		cursor.moveToFirst();
-
-		Thematique theme = new Thematique(cursor.getString(2));
-
-
+		Thematique theme = new Thematique(cursor.getString(1));
 		cursor.close();
 
 		return theme;

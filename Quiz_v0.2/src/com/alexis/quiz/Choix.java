@@ -64,16 +64,19 @@ public class Choix extends Activity implements OnClickListener {
 
 		// TODO Auto-generated method stub
 		if(v==jouerNow & (choix.getCheckedRadioButtonId()==R.id.jee | choix.getCheckedRadioButtonId()==R.id.android)){
+			themeDAO.open();
 			Intent theIntent = new Intent(this, Jeu.class);
 
 			if(choix.getCheckedRadioButtonId()==R.id.jee){
 
-				theIntent.putExtra("check", themeDAO.getThematiqueParId(1).getId_th());
+				theIntent.putExtra("check", "jee");
 			}
 			else if(choix.getCheckedRadioButtonId()==R.id.android){
-				theIntent.putExtra("check", themeDAO.getThematiqueParId(2).getId_th());
+				theIntent.putExtra("check", "android");
 			}
 			startActivity(theIntent);
+			
+		themeDAO.close();
 		}else {
 			Toast.makeText(this, "Vous devez faire un choix", Toast.LENGTH_LONG).show();
 		}

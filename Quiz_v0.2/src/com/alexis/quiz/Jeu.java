@@ -6,6 +6,8 @@ import com.alexi.quiz.R;
 
 
 
+
+import dao.NbpjDAO;
 import dao.QuestionsDAO;
 import dao.ReponseDAO;
 import dao.ThematiqueDAO;
@@ -30,7 +32,9 @@ public class Jeu extends Activity implements OnClickListener  {
 	ThematiqueDAO theme =new ThematiqueDAO(this);
 	QuestionsDAO question =new QuestionsDAO(this);
 	ReponseDAO reponse = new ReponseDAO(this);
-	int id_th;
+	NbpjDAO nbpj= new NbpjDAO(this);
+	String check;
+	int id_th, note=0, indexQuestion=1;
 
 
 
@@ -44,11 +48,15 @@ public class Jeu extends Activity implements OnClickListener  {
 		setContentView(R.layout.activity_jouer);
 
 		Intent intent = getIntent();
-		id_th= Integer.parseInt(intent.getStringExtra("check"));
+		theme.open();
+		question.open();
+		reponse.open();
+
+		check=intent.getStringExtra("check");
 
 		TextView tv = (TextView) findViewById(R.id.qcm);
 
-		tv.setText("QCM  " + theme.getThematiqueParId(id_th).getTheme().toUpperCase());
+		tv.setText("QCM  " + check.toUpperCase());
 
 
 		r1= (TextView) findViewById(R.id.radio0);
@@ -57,17 +65,18 @@ public class Jeu extends Activity implements OnClickListener  {
 
 		t1= (TextView) findViewById(R.id.qestion1qcm);
 
-		if(id_th==1){
-			t1.setText(question.getQuestionParTheme(1).get(1).getQuestion());
-			r1.setText(reponse.getReponseParIdQuestion(1).get(1).getReponse());
-			r2.setText(reponse.getReponseParIdQuestion(1).get(2).getReponse());
+		if(check.startsWith("j")){
+			id_th=1;
+			t1.setText(question.getQuestionParTheme(1).get(0).getQuestion());
+			r1.setText(reponse.getReponseParIdQuestion(1).get(0).getReponse());
+			r2.setText(reponse.getReponseParIdQuestion(1).get(1).getReponse());
 
 
-		}else if(id_th==2){
-
-			t1.setText(question.getQuestionParTheme(2).get(1).getQuestion());
-			r1.setText(reponse.getReponseParIdQuestion(5).get(1).getReponse());
-			r2.setText(reponse.getReponseParIdQuestion(5).get(2).getReponse());
+		}else if(check.startsWith("a")){
+			id_th=2;
+			t1.setText(question.getQuestionParTheme(2).get(0).getQuestion());
+			r1.setText(reponse.getReponseParIdQuestion(5).get(0).getReponse());
+			r2.setText(reponse.getReponseParIdQuestion(5).get(1).getReponse());
 
 
 		}
@@ -82,6 +91,9 @@ public class Jeu extends Activity implements OnClickListener  {
 
 			public void onCheckedChanged(RadioGroup group, int checkedId) {	} });
 
+		reponse.close();
+		question.close();
+		theme.close();
 	}
 
 
@@ -91,20 +103,40 @@ public class Jeu extends Activity implements OnClickListener  {
 		// TODO Auto-generated method stub
 
 		/// cette partie n'est pas encore faite. Je vais m arreter là pour ce soir.
-		if(v==validerqcm &(choix1.getCheckedRadioButtonId()==R.id.radio0 | choix1.getCheckedRadioButtonId()==R.id.radio1)){
+		if(v==validerqcm &&(choix1.getCheckedRadioButtonId()==R.id.radio0 | choix1.getCheckedRadioButtonId()==R.id.radio1) && indexQuestion<3){
 
-			for(int i =1; i<question.getQuestionParTheme(id_th).size();i++){
+			theme.open();
+			question.open();
+			reponse.open();
+			t1.setText(question.getQuestionParTheme(id_th).get(indexQuestion).getQuestion());
+
+			int id_quest= question.getQuestionParTheme(id_th).get(indexQuestion).getId_quest();
+			r1.setText(reponse.getReponseParIdQuestion(id_quest).get(0).getReponse());
+			note+=reponse.getReponseParIdQuestion(id_quest).get(0).getValeur_rep();
+			r2.setText(reponse.getReponseParIdQuestion(id_quest).get(1).getReponse());
+			note+=reponse.getReponseParIdQuestion(id_quest).get(1).getValeur_rep();
+
+			indexQuestion++;
+
+			/*if(indexQuestion ==3){
+
+				t1.setText(question.getQuestionParTheme(id_th).get(indexQuestion).getQuestion());
+				r1.setText(reponse.getReponseParIdQuestion(question.getQuestionParTheme(id_th).get(indexQuestion).getId_quest()).get(0).getReponse());
+				note+=reponse.getReponseParIdQuestion(question.getQuestionParTheme(id_th).get(indexQuestion).getId_quest()).get(0).getValeur_rep();
+				r2.setText(reponse.getReponseParIdQuestion(question.getQuestionParTheme(id_th).get(indexQuestion).getId_quest()).get(1).getReponse());
+				note+=reponse.getReponseParIdQuestion(question.getQuestionParTheme(id_th).get(indexQuestion).getId_quest()).get(1).getValeur_rep();
 
 			}
 
-			if(getIntent().getStringExtra("check").startsWith("j")){
-			}
-			if(getIntent().getStringExtra("check").startsWith("a"))
-				if(choix1.getCheckedRadioButtonId()==R.id.radio0);
+			 */
 
+			//	nbpj.ajouterPartieJouee(new Nbpj(s));
 
-			//			Toast.makeText(this, "Votre note est: "+note,Toast.LENGTH_LONG).show();	
+			//Toast.makeText(this, "Votre note est: "+note,Toast.LENGTH_LONG).show();	
 
+			reponse.close();
+			question.close();
+			theme.close();
 
 		}else {
 			Toast.makeText(this, "cochez toutes les parties", Toast.LENGTH_LONG).show();
